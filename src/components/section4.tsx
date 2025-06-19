@@ -8,7 +8,7 @@ const Section4 = () => {
             style={{ fontFamily: "LufgaMedium" }}
             className="text-5xl md:mt-0 mt-10 text-left md:text-[14rem] leading-[1] mb-4 md:pl-15 md:pt-10"
           >
-            LET'S BUILD
+            LET&apos;S BUILD
             <br />
             TOGETHER
           </h1>

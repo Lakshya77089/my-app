@@ -102,7 +102,7 @@ const Section5 = () => {
             style={{ fontFamily: "LufgaLight" }}
             className="text-5xl md:text-8xl tracking-tight text-left mb-8"
           >
-            <span style={{ fontFamily: "LufgaSemibold" }}>LET'S CO-CREATE</span>
+            <span style={{ fontFamily: "LufgaSemibold" }}>LET&apos;S CO-CREATE</span>
             <br />
             THE FUTURE
           </h1>
