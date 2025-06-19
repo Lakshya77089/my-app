@@ -6,7 +6,7 @@ import { client } from "../../actions/wallet";
 import { useTheme } from "next-themes";
 import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import {
   Sheet,

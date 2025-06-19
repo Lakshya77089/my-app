@@ -48,7 +48,7 @@ const Section1 = () => {
                 >
                   At{" "}
                   <span className="font-semibold text-white">BFM Academy</span>,
-                  our events are more than just gatherings—they're gateways into
+                  our events are more than just gatherings—they&apos;re gateways into
                   the decentralized future. We curate meetups, panels,
                   workshops, and networking mixers globally to onboard students,
                   startups, creators, and enterprises into the Web3 and AI

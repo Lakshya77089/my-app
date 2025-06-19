@@ -17,7 +17,7 @@ const Section2 = () => {
           className="max-w-xl text-[20px] leading-[1.6]"
         >
           Our mission is simple: bridge the gap between Web2 curiosity and Web3
-          clarity. Whether you're an absolute beginner or an experienced
+          clarity. Whether you&apos;re an absolute beginner or an experienced
           builder, our events provide hands-on learning, direct access to
           thought leaders, and a chance to connect with a global community
           pushing the edge of tech.

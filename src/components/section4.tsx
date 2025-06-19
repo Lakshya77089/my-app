@@ -33,7 +33,7 @@ const Section4 = () => {
               style={{ fontFamily: "LufgaLight" }}
               className="text-sm md:text-base text-gray-400 md:text-right max-w-md leading-relaxed mb-4"
             >
-              Whether you’re a blockchain protocol, a Web3 product, a
+              Whether you&apos;re a blockchain protocol, a Web3 product, a
               university, or an innovation hub—
             </p>
 
@@ -43,7 +43,7 @@ const Section4 = () => {
                 className="text-sm md:text-base text-gray-400 md:text-right max-w-md leading-relaxed"
               >
                 Partnering with us gives you access to our growing international
-                presence and deep-rooted tech community. We’re present in 60+
+                presence and deep-rooted tech community. We&apos;re present in 60+
                 countries, and we bring the right crowd to help your mission
                 scale.
               </p>

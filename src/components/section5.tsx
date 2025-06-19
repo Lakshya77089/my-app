@@ -136,7 +136,7 @@ const Section5 = () => {
                 className="text-white-700 max-w-xs text-left md:text-right"
               >
                 Whether you want to host a co-branded event, sponsor a session,
-                or run product showcases—we're here to work together.
+                or run product showcases—we&apos;re here to work together.
               </p>
             </div>
           </div>
