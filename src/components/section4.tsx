@@ -31,16 +31,19 @@ const Section4 = () => {
           <div className="md:mr-15 md:pr-5">
             <p
               style={{ fontFamily: "LufgaLight" }}
-              className="text-sm md:text-base text-gray-400 md:text-right max-w-md leading-relaxed mb-4"
+              className="mb-4 max-w-md text-center text-sm leading-relaxed text-gray-400 md:text-right md:text-base"
             >
               Whether you&apos;re a blockchain protocol, a Web3 product, a
               university, or an innovation hub—
             </p>
 
-            <div className="bg-black md:border md:border-white/50 rounded-xl md:p-4 md:pr-10 md:pb-10">
+            <div className="relative rounded-xl bg-black md:p-4 md:pb-10 md:pr-10">
+            <div className="absolute left-0 top-1/2 hidden h-1/2 w-px bg-white/50 md:block" />
+							<div className="absolute right-0 top-1/2 hidden h-1/2 w-px bg-white/50 md:block" />
+							<div className="absolute bottom-0 left-0 hidden h-px w-full bg-white/50 md:block" />
               <p
                 style={{ fontFamily: "LufgaLight" }}
-                className="text-sm md:text-base text-gray-400 md:text-right max-w-md leading-relaxed"
+                className="max-w-md text-center text-sm leading-relaxed text-gray-400 md:text-right md:text-base"
               >
                 Partnering with us gives you access to our growing international
                 presence and deep-rooted tech community. We&apos;re present in 60+

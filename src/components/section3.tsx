@@ -1,14 +1,49 @@
 "use client";
 
-import React from "react";
-
+import React, { useRef, useState } from "react";
 
 const Section3 = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const handleHover = (index: number) => {
+    setHoveredIndex(index);
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  };
+  const handleLeave = () => {
+    setHoveredIndex(null);
+  };
+  const items = [
+    "WEB3 CRASH COURSES AND LIVE DEMOS",
+    "FIRESIDE CHATS WITH INDUSTRY LEADERS",
+    "IRL SIDE EVENTS DURING GLOBAL BLOCKCHAIN CONFERENCES",
+    "BUSINESS PANELS FOR STARTUPS & ENTERPRISES",
+    "INTERACTIVE GAMES, BOOTHS, AND TOKEN GIVEAWAYS",
+  ];
+  const images = [
+    "/images/hover-1.webp",
+    "/images/hover-2.webp",
+    "/images/hover-3.webp",
+    "/images/hover-4.webp",
+    "/images/hover-5.webp",
+  ];
   return (
-    <section className="w-full bg-black text-white px-6 lg:px-20 md:py-10 pt-25">
+    <section className="w-full bg-black text-white px-6 lg:px-20  pt-25">
+      <audio ref={audioRef} src="click-effect.mp3" preload="auto" />
       <div className="max-w-7xl mx-auto flex flex-col gap-3">
         {/* Top Right Box */}
-        <div className="flex flex-col md:flex-row justify-end md:ml-20 ml-0 px-1 md:px-0">
+        <div className="flex flex-col md:flex-row items-center justify-end md:ml-20 ml-0 px-1 md:px-0">
+          {hoveredIndex !== null && (
+            <div className="bg-red w-[50%] h-full z-[10]">
+              <img
+                src={images[hoveredIndex]}
+                alt="Hover Preview"
+                className="w-[250px] h-auto object-contain h-[300px]"
+              />
+            </div>
+          )}
           <div
             className="
       bg-black/50 
@@ -26,19 +61,20 @@ const Section3 = () => {
     "
           >
             <ul className="space-y-3 list-none">
-              {[
-                "WEB3 CRASH COURSES AND LIVE DEMOS",
-                "FIRESIDE CHATS WITH INDUSTRY LEADERS",
-                "IRL SIDE EVENTS DURING GLOBAL BLOCKCHAIN CONFERENCES",
-                "BUSINESS PANELS FOR STARTUPS & ENTERPRISES",
-                "INTERACTIVE GAMES, BOOTHS, AND TOKEN GIVEAWAYS",
-              ].map((text) => (
+              {items.map((text, index) => (
                 <li key={text} className="flex items-start gap-3">
                   {/* Arrow icon */}
                   <span className="text-white/70 text-[#8A8AFF]">→</span>
 
                   {/* Text with your custom font */}
-                  <span style={{ fontFamily: "LufgaLight" }}>{text}</span>
+                  <span
+                    onMouseEnter={() => handleHover(index)}
+                    onMouseLeave={handleLeave}
+                    className=" hover:underline underline-offset-4 hover:text-white/30"
+                    style={{ fontFamily: "LufgaLight" }}
+                  >
+                    {text}
+                  </span>
                 </li>
               ))}
             </ul>

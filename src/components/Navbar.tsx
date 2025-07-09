@@ -1,27 +1,33 @@
-"use client";
-import Image from "next/image";
-import { ModeToggle } from "@/components/ui/mode-toggle";
-import { ConnectButton } from "thirdweb/react";
-import { client } from "../../actions/wallet";
-import { useTheme } from "next-themes";
-import { Suspense } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
-import Link from "next/link";
+'use client'
+import Image from 'next/image'
+import { ModeToggle } from '@/components/ui/mode-toggle'
+import { ConnectButton } from 'thirdweb/react'
+import { client } from '../../actions/wallet'
+import { useTheme } from 'next-themes'
+import { Suspense,useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Menu } from 'lucide-react'
+import Link from 'next/link'
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+	Sheet,
+	SheetContent,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from '@/components/ui/sheet'
 import {
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandReddit,
-  IconBrandTelegram,
-  IconBrandTwitter,
-} from "@tabler/icons-react";
+	IconBrandInstagram,
+	IconBrandLinkedin,
+	IconBrandReddit,
+	IconBrandTelegram,
+	IconBrandTwitter,
+} from '@tabler/icons-react'
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 export default function Navbar() {
   const theme = useTheme().theme;
@@ -35,9 +41,9 @@ export default function Navbar() {
       height: 200,
     },
   };
-
+  const [showEventLinks, setShowEventLinks] = useState(false)
   return (
-    <nav className="fixed  top-0 left-0 z-250 w-full bg-transparent backdrop-blur-[2px] flex flex-row items-center justify-between px-4 py-3">
+    <nav className="fixed  top-0 left-0 z-[150] w-full bg-transparent backdrop-blur-[10px] flex flex-row items-center justify-between px-14 pb-4 pt-7">
       <Link href="/" className="flex flex-row items-center gap-2 md:gap-4">
         <Image
           src="/logo-blue.png"
@@ -60,7 +66,7 @@ export default function Navbar() {
 
       {/* Desktop Navigation */}
       <div className="hidden flex-row items-center justify-between space-x-2 md:flex">
-        {/* <ModeToggle /> */}
+        <ModeToggle />
         <Link href="/early-access">
           <Button className="bg-brandblue p-5 text-white hover:bg-brandblue/90">
             Get Early Access
@@ -111,14 +117,37 @@ export default function Navbar() {
             Roadmap
           </Button>
         </Link>
-        <Link href="/event-archive">
-          <Button
-            className="group rounded-lg bg-zinc-700 p-5 text-white transition-all hover:bg-zinc-700/90 dark:bg-secondary dark:hover:bg-secondary/90"
-            variant="secondary"
-          >
-            Events
-          </Button>
-        </Link>
+        <DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button
+							className="group rounded-lg bg-zinc-700 p-5 text-white transition-all hover:bg-zinc-700/90 dark:bg-secondary dark:hover:bg-secondary/90"
+							variant="secondary"
+						>
+							Events
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent
+						className="mt-2 w-48 rounded-md border border-zinc-200 bg-white shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
+						align="end"
+					>
+						<DropdownMenuItem asChild>
+							<Link
+								href="/event-archive"
+								className="block rounded px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
+							>
+								Event Archive
+							</Link>
+						</DropdownMenuItem>
+						<DropdownMenuItem asChild>
+							<Link
+								href="/networking"
+								className="block rounded px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
+							>
+								Networking
+							</Link>
+						</DropdownMenuItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
       </div>
 
       {/* Mobile Navigation */}
@@ -162,13 +191,32 @@ export default function Navbar() {
                   </Button>
                 </Link>
               </SheetTrigger>
-              <SheetTrigger asChild>
-                <Link href="/event-archive" className="w-full">
-                  <Button className="group w-full rounded-lg bg-brandblue py-6 text-base text-white shadow-none transition-all hover:bg-brandblue/90">
-                    Events
-                  </Button>
-                </Link>
-              </SheetTrigger>
+              <div className="w-full">
+								<button
+									onClick={() => setShowEventLinks((prev) => !prev)}
+									className="w-full rounded-lg bg-brandblue py-6 text-base text-white transition-all hover:bg-brandblue/90"
+								>
+									Events
+								</button>
+								{showEventLinks && (
+									<div className="mt-2 space-y-2 px-2">
+										<SheetTrigger asChild>
+											<Link href="/event-archive" className="block w-full">
+												<Button className="w-full bg-brandblue/90 text-white hover:bg-brandblue/80">
+													Event Archive
+												</Button>
+											</Link>
+										</SheetTrigger>
+										<SheetTrigger asChild>
+											<Link href="/networking" className="block w-full">
+												<Button className="w-full bg-brandblue/90 text-white hover:bg-brandblue/80">
+													Networking
+												</Button>
+											</Link>
+										</SheetTrigger>
+									</div>
+								)}
+							</div>
               <SheetTrigger asChild>
                 <Link href="/business" className="w-full">
                   <Button className="group w-full rounded-lg bg-brandblue py-6 text-base text-white shadow-none transition-all hover:bg-brandblue/90">

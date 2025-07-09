@@ -6,8 +6,8 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <section className="bg-black text-white w-full">
-      <div className="max-w-7xl mx-auto px-6 lg:px-20 pt-12">
+    <section className="relative bg-black text-white w-full mt-110 md:mt-0">
+      <div className="max-w-7xl mx-auto px-6 lg:px-20 z-3">
         <p
           style={{
             fontFamily: "LufgaRegular",

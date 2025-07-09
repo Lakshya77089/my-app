@@ -1,20 +1,21 @@
+import RippleImage from "@/components/RippleImage";
+
 const Section1 = () => {
   return (
-    <section className="relative w-full bg-black min-h-screen pb-16 md:pb-0">
-      {/* Background Image */}
-      <img
-        src="/section1/background-rectangle.png"
-        alt="Background"
-        className="w-full h-full object-cover absolute inset-0"
+    <section className="relative w-full bg-black h-[130vh] pb-16  md:pb-0">
+        <div
+        className="absolute inset-0 z-0"
         style={{
           WebkitMaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
           maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
         }}
-      />
+      >
+        <RippleImage />
+      </div>
 
       {/* Overlay + Content Wrapper */}
       <div className="relative z-10 min-h-screen flex flex-col justify-between">
-        <div className="text-center pt-2">
+        <div className="text-center pt-20">
           <h1 className="font-sans text-white flex flex-col font-medium w-full">
             <span
               style={{ fontFamily: "LufgaMedium" }}
@@ -56,7 +57,7 @@ const Section1 = () => {
                 </p>
               </div>
 
-              <button className="mt-4 flex mx-auto md:mx-0 items-center  gap-3 rounded-full px-6 py-3 hover:bg-white hover:text-black transition text-sm font-medium">
+              <button className="mt-4 flex mx-auto md:mx-0 items-center  gap-3 rounded-full px-6 py-3 transition text-sm font-medium">
                 <img
                 src="/section2/register.png"
                 alt="Register Icon"

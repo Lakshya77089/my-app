@@ -163,6 +163,14 @@ export default function Footer() {
 									Terms and Conditions
 								</a>
 							</li>
+							<li>
+								<a
+									href="/blog"
+									className="transition-all hover:text-foreground dark:hover:text-brandblue"
+								>
+									Blog
+								</a>
+							</li>
 						</ul>
 						<h2 className="mb-4 mt-6 text-lg uppercase text-brandblue/50 dark:text-muted-foreground">
 							EDUCATION
