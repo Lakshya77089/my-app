@@ -3,18 +3,18 @@
 import React, { useRef, useState } from "react";
 
 const Section3 = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const handleHover = (index: number) => {
-    setHoveredIndex(index);
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
-    }
-  };
-  const handleLeave = () => {
-    setHoveredIndex(null);
-  };
+  // const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  // const audioRef = useRef<HTMLAudioElement | null>(null);
+  // const handleHover = (index: number) => {
+  //   setHoveredIndex(index);
+  //   if (audioRef.current) {
+  //     audioRef.current.currentTime = 0;
+  //     audioRef.current.play();
+  //   }
+  // };
+  // const handleLeave = () => {
+  //   setHoveredIndex(null);
+  // };
   const items = [
     "WEB3 CRASH COURSES AND LIVE DEMOS",
     "FIRESIDE CHATS WITH INDUSTRY LEADERS",
@@ -31,11 +31,11 @@ const Section3 = () => {
   ];
   return (
     <section className="w-full bg-black text-white px-6 lg:px-20  pt-25">
-      <audio ref={audioRef} src="click-effect.mp3" preload="auto" />
+      {/* <audio ref={audioRef} src="click-effect.mp3" preload="auto" /> */}
       <div className="max-w-7xl mx-auto flex flex-col gap-3">
         {/* Top Right Box */}
         <div className="flex flex-col md:flex-row items-center justify-end md:ml-20 ml-0 px-1 md:px-0">
-          {hoveredIndex !== null && (
+          {/* {hoveredIndex !== null && (
             <div className="bg-red w-[50%] h-full z-[10]">
               <img
                 src={images[hoveredIndex]}
@@ -43,7 +43,7 @@ const Section3 = () => {
                 className="w-[250px] h-auto object-contain h-[300px]"
               />
             </div>
-          )}
+          )} */}
           <div
             className="
       bg-black/50 
@@ -68,8 +68,8 @@ const Section3 = () => {
 
                   {/* Text with your custom font */}
                   <span
-                    onMouseEnter={() => handleHover(index)}
-                    onMouseLeave={handleLeave}
+                    // onMouseEnter={() => handleHover(index)}
+                    // onMouseLeave={handleLeave}
                     className=" hover:underline underline-offset-4 hover:text-white/30"
                     style={{ fontFamily: "LufgaLight" }}
                   >
