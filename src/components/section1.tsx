@@ -115,7 +115,7 @@ const Section1 = () => {
             </div> */}
 
             {/* Right Content start */}
-            <div className="relative bg-white/5 rounded-xl p-3 mt-10 w-[45rem] h-80 backdrop-blur-[3px] overflow-hidden flex">
+            <div className="relative bg-white/5 rounded-xl p-3 mt-10 w-full max-w-[45rem] md:w-[45rem] h-60 sm:h-72 md:h-80 backdrop-blur-[3px] overflow-hidden flex z-[-1]">
               <span className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-white/10 via-white/60 to-white/10" />
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-white/10 via-white/60 to-white/10" />
               <span className="absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-white/10 via-white/60 to-white/10" />
@@ -135,15 +135,17 @@ const Section1 = () => {
                   height={228}
                   className="absolute bottom-0 right-0 opacity-50"
                 />
-                <div className="relative z-10 h-full w-full p-3">
-                  <div className="flex items-center justify-center flex-col mb-4">
-                    <p className="text-[10px] text-gray-100">banking partner</p>
+                <div className="relative z-10 h-full w-full p-2 sm:p-3">
+                  <div className="flex items-center justify-center flex-col sm:mb-2">
+                    <p className="text-[8px] sm:text-[10px] text-gray-100">
+                      banking partner
+                    </p>
                     <Image
                       src="/section1/IDFC_logo.png"
                       alt="IDFC Logo"
                       width={88}
                       height={25}
-                      className="object-cover"
+                      className="object-cover w-16 sm:w-auto h-auto"
                     />
                   </div>
                   <Image
@@ -151,55 +153,61 @@ const Section1 = () => {
                     alt="IDFC Logo"
                     width={144}
                     height={355}
-                    className="object-cover m-auto w-full h-[184px] -mt-10"
+                    className="object-cover m-auto w-full h-24 sm:h-32 md:h-[174px] -mt-0 sm:-mt-10"
                   />
-                  <div className="flex -mt-8 items-center justify-center gap-4">
+                  <div className="flex -mt-4 sm:-mt-8 items-center justify-center gap-2 sm:gap-4">
                     <div>
-                      <p className="text-[9px] mb-1">sponsored by</p>
+                      <p className="text-[7px] sm:text-[9px] mb-1">
+                        sponsored by
+                      </p>
                       <Image
                         src="/section1/sLogo1.png"
                         alt="sLogo1"
                         width={144}
                         height={26}
-                        className="object-cover m-auto w-full h-[20px]"
+                        className="object-cover m-auto w-8 sm:w-full h-3 sm:h-[20px]"
                       />
                     </div>
                     <div>
-                      <p className="text-[9px] mb-1">powered by</p>
+                      <p className="text-[7px] sm:text-[9px] mb-1">
+                        powered by
+                      </p>
                       <Image
                         src="/section1/sLogo2.png"
                         alt="sLogo1"
                         width={144}
                         height={26}
-                        className="object-cover m-auto w-full h-[20px]"
+                        className="object-cover m-auto w-8 sm:w-full h-3 sm:h-[20px]"
                       />
                     </div>
                     <div>
-                      <p className="text-[9px] mb-1">organised by</p>
+                      <p className="text-[7px] sm:text-[9px] mb-1">
+                        organised by
+                      </p>
                       <Image
                         src="/section1/sLogo3.png"
                         alt="sLogo1"
                         width={144}
                         height={26}
-                        className="object-cover m-auto w-full h-[20px]"
+                        className="object-cover m-auto w-8 sm:w-full h-3 sm:h-[20px]"
                       />
                     </div>
                   </div>
 
-                  <div className="mt-3 flex items-center justify-center gap-2 flex-col">
+                  <div className="mt-2 sm:mt-3 flex items-center justify-center gap-2 flex-col">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={24}
                       height={24}
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className="icon icon-tabler icons-tabler-filled icon-tabler-map-pin"
+                      className="icon icon-tabler icons-tabler-filled icon-tabler-map-pin w-4 h-4 sm:w-6 sm:h-6"
                     >
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" />
                     </svg>
 
-                    <p className="text-[10px] leading-[1.2]">
+                    <p className="text-[8px] sm:text-[10px] leading-[1.2]">
                       Wework Blue One Square <br />{" "}
                       <span className="font-bold">Gurugram</span>
                     </p>
@@ -208,23 +216,23 @@ const Section1 = () => {
               </div>
               <div className="h-full w-[30%] relative flex flex-col items-start p-2 justify-end">
                 <h2
-                  className="text-3xl font-bold text-start"
-                  style={{ lineHeight: "1.2" }}
+                  className="text-xl sm:text-2xl md:text-3xl font-bold text-start"
+                  style={{ lineHeight: 1 }}
                 >
                   Join <br />
                   FUTURE <br />
                   xcon
                 </h2>
-                <p className="text-[12px] font-bold text-white/90 mt-2">
+                <p className="text-[8px] sm:text-[12px] font-bold text-white/90 mt-2">
                   15th December 2023
                 </p>
-                <button className="mt-3 flex items-center">
+                <button className="mt-3 flex items-center text-[10px] sm:text-sm">
                   <img
                     src="/section2/register.png"
                     alt="Register Icon"
                     width={18}
                     height={18}
-                    className="w-10 h-10"
+                    className="w-6 h-6 sm:w-10 sm:h-10"
                   />
                   Join Now
                 </button>

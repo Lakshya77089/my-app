@@ -146,13 +146,13 @@ const Section7: React.FC = () => {
       </h1>
 
       <div className="mt-16 overflow-hidden">
-        <div className="flex gap-10 animate-marquee">
+        <div className="flex sm:gap-10 gap-5 animate-marquee">
           {renderProjectImages(projectImages1)}
         </div>
       </div>
 
-      <div className="mt-16 overflow-hidden">
-        <div className="flex gap-10 animate-marquee-reverse">
+      <div className="sm:mt-16 mt-8 overflow-hidden">
+        <div className="flex sm:gap-10 gap-5 animate-marquee-reverse">
           {renderProjectImages(projectImages2)}
         </div>
       </div>
