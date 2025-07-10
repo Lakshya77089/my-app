@@ -1,24 +1,26 @@
-import Section1 from '@/components/section1';
-import Section2 from '@/components/section2';
+import Section1 from "@/components/section1";
+import Section2 from "@/components/section2";
 import Navbar from "@/components/Navbar";
 import Section3 from "@/components/section3";
 import Section4 from "@/components/section4";
 import Section5 from "@/components/section5";
 import Footer from "@/components/footer";
-import Section6 from '@/components/section6';
+import Section7 from "@/components/Section7";
+import Section6 from "@/components/section6";
 export default function Home() {
   return (
     <main>
-      <Navbar/>
-      <Section1/>
-      <Section6/>
-      <Section2/>
-      <Section3/>
-      <Section4/>
+      <Navbar />
+      <Section1 />
+      <Section6 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
       <div className="relative">
-      <Section5/>
+        <Section5 />
       </div>
-      <Footer/>
+      <Section7 />
+      <Footer />
     </main>
   );
 }
