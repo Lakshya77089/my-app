@@ -159,7 +159,7 @@ const Section7: React.FC = () => {
 
       <h1 className="text-center text-3xl font-light mt-20 mb-10">
         The Leading Voices
-        <br /> <span className="font-bold">On Crypto's Biggest Stage</span>
+        <br /> <span className="font-bold">On Crypto&apos;s Biggest Stage</span>
       </h1>
 
       <div className="mt-16 overflow-hidden">
