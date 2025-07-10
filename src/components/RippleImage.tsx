@@ -19,7 +19,11 @@ function RipplePlane() {
   const texture = useLoader(THREE.TextureLoader, "/section1/background-rectangle.png");
   const viewport = useThree((state) => state.viewport);
 
-  const scale = useMemo(() => [viewport.width, viewport.height, 1], [viewport]);
+  const scale = useMemo<[number, number, number]>(() => [
+    typeof viewport.width === "number" ? viewport.width : 1,
+    typeof viewport.height === "number" ? viewport.height : 1,
+    1
+  ], [viewport.width, viewport.height]);
 
   return (
     <mesh scale={scale}>
