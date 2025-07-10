@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 
 const Section3 = () => {
   // const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -22,13 +22,13 @@ const Section3 = () => {
     "BUSINESS PANELS FOR STARTUPS & ENTERPRISES",
     "INTERACTIVE GAMES, BOOTHS, AND TOKEN GIVEAWAYS",
   ];
-  const images = [
-    "/images/hover-1.webp",
-    "/images/hover-2.webp",
-    "/images/hover-3.webp",
-    "/images/hover-4.webp",
-    "/images/hover-5.webp",
-  ];
+  // const images = [
+  //   "/images/hover-1.webp",
+  //   "/images/hover-2.webp",
+  //   "/images/hover-3.webp",
+  //   "/images/hover-4.webp",
+  //   "/images/hover-5.webp",
+  // ];
   return (
     <section className="w-full bg-black text-white px-6 lg:px-20  pt-25">
       {/* <audio ref={audioRef} src="click-effect.mp3" preload="auto" /> */}
@@ -61,7 +61,7 @@ const Section3 = () => {
     "
           >
             <ul className="space-y-3 list-none">
-              {items.map((text, index) => (
+              {items.map((text) => (
                 <li key={text} className="flex items-start gap-3">
                   {/* Arrow icon */}
                   <span className="text-white/70 text-[#8A8AFF]">→</span>
