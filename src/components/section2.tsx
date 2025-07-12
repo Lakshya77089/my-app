@@ -6,15 +6,15 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <section className="relative bg-black text-white w-full mt-110 md:mt-0">
-      <div className="max-w-7xl mx-auto px-6 lg:px-20 z-3">
+    <section className="relative bg-black text-white w-full mt-30 md:mt-0">
+      <div className="max-w-7xl mx-auto px-6 lg:px-20 z-9">
         <p
           style={{
             fontFamily: "LufgaRegular",
             letterSpacing: "-0.01em",
             WebkitFontSmoothing: "antialiased",
           }}
-          className="max-w-xl text-[20px] leading-[1.6]"
+          className="max-w-xl text-[20px] leading-[1.6] text-center md:text-left "
         >
           Our mission is simple: bridge the gap between Web2 curiosity and Web3
           clarity. Whether you&apos;re an absolute beginner or an experienced
@@ -75,7 +75,7 @@ const Section2 = () => {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-5xl">
           <Image
-            src="/section2/rectangle.png"
+            src="/section2/Rectangle.png"
             alt="Middle graphic"
             width={1281}
             height={393}
