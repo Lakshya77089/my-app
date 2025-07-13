@@ -15,7 +15,7 @@ const Section4 = () => {
           <img
             src="section4/image1.png"
             alt="Crystalline Graphic"
-            className="w-48 h-48 mb-10 md:mb-40 md:w-[32.5rem] md:h-[42.5rem] rounded-xl md:-mt-50 md:-ml-120 md:mb-60"
+            className="w-64 h-48 mb-10 md:w-[32.5rem] md:h-[42.5rem] rounded-xl md:-mt-50 md:-ml-120 md:mb-60"
           />
         </div>
         <div className="flex flex-col md:flex-row justify-between gap-6 z-[110]">
@@ -38,16 +38,16 @@ const Section4 = () => {
             </p>
 
             <div className="relative rounded-xl bg-black md:p-4 md:pb-10 md:pr-10">
-            <div className="absolute left-0 top-1/2 hidden h-1/2 w-px bg-white/50 md:block" />
-							<div className="absolute right-0 top-1/2 hidden h-1/2 w-px bg-white/50 md:block" />
-							<div className="absolute bottom-0 left-0 hidden h-px w-full bg-white/50 md:block" />
+              <div className="absolute left-0 top-1/2 hidden h-1/2 w-px bg-white/50 md:block" />
+              <div className="absolute right-0 top-1/2 hidden h-1/2 w-px bg-white/50 md:block" />
+              <div className="absolute bottom-0 left-0 hidden h-px w-full bg-white/50 md:block" />
               <p
                 style={{ fontFamily: "LufgaLight" }}
                 className="max-w-md text-center text-sm leading-relaxed text-gray-400 md:text-right md:text-base"
               >
                 Partnering with us gives you access to our growing international
-                presence and deep-rooted tech community. We&apos;re present in 60+
-                countries, and we bring the right crowd to help your mission
+                presence and deep-rooted tech community. We&apos;re present in
+                60+ countries, and we bring the right crowd to help your mission
                 scale.
               </p>
             </div>

@@ -133,7 +133,7 @@ const Section3 = () => {
             <div className="md:text-right text-center">
               <h2
                 style={{ fontFamily: "SatoshiMedium" }}
-                className="text-5xl sm:text-6xl lg:text-[9rem] font-light h-full leading-[0.9] md:pt-15 pt-25"
+                className="text-5xl sm:text-6xl lg:text-[9rem] font-light h-full md:leading-[0.9] md:pt-15 pt-25"
               >
                 everyone with <br />
                 <span className="font-normal">a </span>
