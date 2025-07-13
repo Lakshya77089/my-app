@@ -26,60 +26,60 @@ body {
   overflow-x: clip;
 }
 @font-face {
-  font-family: 'LufgaMedium';
-  src: url('/lufga/LufgaMedium.ttf') format('opentype');
+  font-family: "LufgaMedium";
+  src: url("/lufga/LufgaMedium.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'LufgaRegular';
-  src: url('/lufga/LufgaRegular.ttf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'SatoshiLight';
-  src: url('/satoshi/Satoshi-Light.otf') format('opentype');
+  font-family: "LufgaRegular";
+  src: url("/lufga/LufgaRegular.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'LufgaLight';
-  src: url('/lufga/LufgaLight.ttf') format('opentype');
+  font-family: "SatoshiLight";
+  src: url("/satoshi/Satoshi-Light.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'LufgaSemiBold';
-  src: url('/lufga/LufgaSemiBold.ttf') format('opentype');
+  font-family: "LufgaLight";
+  src: url("/lufga/LufgaLight.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshimedium';
-  src: url('/satoshi/Satoshi-Light.otf') format('opentype');
+  font-family: "LufgaSemiBold";
+  src: url("/lufga/LufgaSemiBold.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshimedium";
+  src: url("/satoshi/Satoshi-Light.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SatoshiBold';
-  src: url('/satoshi/Satoshi-Bold.otf') format('opentype');
+  font-family: "SatoshiBold";
+  src: url("/satoshi/Satoshi-Bold.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SatoshiBlack';
-  src: url('/satoshi/Satoshi-Black.otf') format('opentype');
+  font-family: "SatoshiBlack";
+  src: url("/satoshi/Satoshi-Black.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'BeVietnamPro-Medium';
-  src: url('/be-vietnam-pro/BeVietnamPro-Medium.ttf') format('opentype');
+  font-family: "BeVietnamPro-Medium";
+  src: url("/be-vietnam-pro/BeVietnamPro-Medium.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -101,7 +101,12 @@ body {
   left: 0;
   height: 1px;
   width: 100%;
-  background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255), rgba(255, 255, 255));
+  background: linear-gradient(
+    to right,
+    rgb(255, 255, 255),
+    rgba(255, 255, 255),
+    rgba(255, 255, 255)
+  );
 }
 
 /* Bottom border: left dim → right shine */
@@ -112,7 +117,12 @@ body {
   left: 0;
   height: 1px;
   width: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1));
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.1)
+  );
 }
 
 /* Right border: mid sharp → edges dim */
@@ -123,6 +133,71 @@ body {
   right: 0;
   height: 100%;
   width: 1px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1));
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.1)
+  );
 }
 
+/* Marquee Styles */
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-content {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee linear infinite;
+}
+
+.marquee-content[data-direction="left"] {
+  animation-name: marquee-left;
+}
+
+.marquee-content[data-direction="right"] {
+  animation-name: marquee-right;
+}
+
+/* Animation Speeds */
+.marquee-content[data-speed="normal"] {
+  animation-duration: 80s;
+}
+
+.marquee-content[data-speed="slow"] {
+  animation-duration: 160s;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .marquee-content[data-speed="normal"] {
+    animation-duration: 80s;
+  }
+
+  .marquee-content[data-speed="slow"] {
+    animation-duration: 100s;
+  }
+}
+
+/* Keyframes */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

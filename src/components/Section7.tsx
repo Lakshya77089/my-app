@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface ProjectImage {
   src: string;
@@ -153,7 +153,7 @@ const Section7: React.FC = () => {
     },
     {
       image: "./section7/p9.png",
-      name: "Joshua Cheong",
+      name: "Joshua Cheong",
       title: "Head of Product",
       company: "Mantle Network",
     },
@@ -399,94 +399,149 @@ const Section7: React.FC = () => {
     },
   ];
 
-  const renderProjectImages = (
-    images: ProjectImage[],
-    duplicateCount: number = 2
-  ) => {
-    const duplicatedImages = Array(duplicateCount).fill(images).flat();
-    return duplicatedImages.map((image, index) => (
+  const containerRef1 = useRef<HTMLDivElement>(null);
+  const containerRef2 = useRef<HTMLDivElement>(null);
+  const containerRef3 = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Add this useEffect to your component
+  useEffect(() => {
+    const setAnimationProperties = () => {
+      if (containerRef1.current) {
+        containerRef1.current.style.setProperty(
+          "--duration",
+          containerRef1.current.getAttribute("data-duration") || "40"
+        );
+        containerRef1.current.style.setProperty(
+          "--mobile-duration",
+          containerRef1.current.getAttribute("data-mobile-duration") || "20"
+        );
+      }
+      if (containerRef2.current) {
+        containerRef2.current.style.setProperty(
+          "--duration",
+          containerRef2.current.getAttribute("data-duration") || "40"
+        );
+        containerRef2.current.style.setProperty(
+          "--mobile-duration",
+          containerRef2.current.getAttribute("data-mobile-duration") || "20"
+        );
+      }
+      if (containerRef3.current) {
+        containerRef3.current.style.setProperty(
+          "--duration",
+          containerRef3.current.getAttribute("data-duration") || "40"
+        );
+        containerRef3.current.style.setProperty(
+          "--mobile-duration",
+          containerRef3.current.getAttribute("data-mobile-duration") || "20"
+        );
+      }
+    };
+
+    setAnimationProperties();
+    window.addEventListener("resize", setAnimationProperties);
+    return () => window.removeEventListener("resize", setAnimationProperties);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const renderProjectImages = (images: ProjectImage[]) => {
+    return images.map((image, index) => (
       <img
         key={`${image.src}-${index}`}
         src={image.src}
-        className="h-[50px] w-[150px] inline-block shrink-0 mx-10"
+        className="h-[50px] w-[150px] inline-block shrink-0 mx-5 sm:mx-10"
         alt={image.alt}
+        loading="lazy"
       />
     ));
   };
 
-  const renderSpeakers = (speakers: Speaker[], duplicateCount: number = 2) => {
-    const duplicatedSpeakers = Array(duplicateCount).fill(speakers).flat();
-    return duplicatedSpeakers.map((speaker, index) => (
-      <div
-        key={`${speaker.name}-${index}`}
-        className="flex flex-col items-center shrink-0 bg-[#0A0A0A] rounded-lg overflow-hidden border-t-2 border-gray-600 p-3"
-      >
-        <img
-          src={speaker.image}
-          className="h-[120px] w-full object-cover"
-          alt={speaker.name}
-        />
-        <h4 className="text-lg mt-2 font-medium">{speaker.name}</h4>
-        <p className="text-[10px] text-gray-400">{speaker.title}</p>
-        <p className="text-[10px] text-gray-400">{speaker.company}</p>
+  const renderSpeakers = (speakers: Speaker[]) => {
+    return speakers.map((speaker, index) => (
+      <div className="flex-shrink-0 inline-block" key={index}>
+        <div className="flex flex-col items-center shrink-0 bg-[#0A0A0A] rounded-lg overflow-hidden border-t-2 border-gray-600 p-3 mx-3 sm:mx-5 w-[160px] sm:w-[200px]">
+          <div className="h-[150px] w-full overflow-hidden relative">
+            <img
+              src={speaker.image}
+              className="h-full w-[90%] object-cover"
+              alt={speaker.name}
+              loading="lazy"
+            />
+          </div>
+          <h4 className="text-sm sm:text-lg mt-2 font-medium text-center">
+            {speaker.name}
+          </h4>
+          <p className="text-[9px] sm:text-[10px] text-gray-400 text-center">
+            {speaker.title}
+          </p>
+          <p className="text-[9px] sm:text-[10px] text-gray-400 text-center">
+            {speaker.company}
+          </p>
+        </div>
       </div>
     ));
   };
 
   return (
     <section className="w-full bg-black text-white md:py-20">
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        @keyframes marquee-reverse {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0%);
-          }
-        }
-
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-
-        .animate-marquee-reverse {
-          animation: marquee-reverse 30s linear infinite;
-        }
-      `}</style>
-
-      <h1 className="text-center text-3xl font-light mt-10 mb-10">
+      <h1 className="text-center text-2xl sm:text-3xl font-light mt-10 mb-10 px-4">
         Our powder Projects <br /> <span className="font-bold">Ecosystem</span>
       </h1>
 
-      <div className="mt-16 overflow-hidden">
-        <div className="flex sm:gap-10 gap-5 animate-marquee">
-          {renderProjectImages(projectImages1)}
+      <div className="mt-16 overflow-hidden relative">
+        <div className="marquee-wrapper">
+          <div
+            ref={containerRef1}
+            className="marquee-content"
+            data-direction="left"
+            data-speed="slow"
+          >
+            {renderProjectImages(projectImages1)}
+            {renderProjectImages(projectImages1)}
+          </div>
         </div>
       </div>
 
-      <div className="sm:mt-16 mt-8 overflow-hidden">
-        <div className="flex sm:gap-10 gap-5 animate-marquee-reverse">
-          {renderProjectImages(projectImages2)}
+      <div className="sm:mt-16 mt-8 overflow-hidden relative">
+        <div className="marquee-wrapper">
+          <div
+            ref={containerRef2}
+            className="marquee-content"
+            data-direction="right"
+            data-speed="slow"
+          >
+            {renderProjectImages(projectImages2)}
+            {renderProjectImages(projectImages2)}
+          </div>
         </div>
       </div>
 
-      <h1 className="text-center text-3xl font-light mt-20 mb-10">
+      <h1 className="text-center text-2xl sm:text-3xl font-light mt-20 mb-10 px-4">
         The Leading Voices
         <br /> <span className="font-bold">On Crypto&apos;s Biggest Stage</span>
       </h1>
 
-      <div className="mt-16 overflow-hidden">
-        <div className="flex gap-10 animate-marquee">
-          {renderSpeakers(speakers)}
+      <div className="mt-16 overflow-hidden relative">
+        <div className="marquee-wrapper">
+          <div
+            ref={containerRef3}
+            className="marquee-content"
+            data-direction="left"
+            data-speed="slow"
+          >
+            {renderSpeakers(speakers)}
+            {renderSpeakers(speakers)}
+          </div>
         </div>
       </div>
     </section>
