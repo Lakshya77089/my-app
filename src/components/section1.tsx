@@ -330,12 +330,12 @@ const Section1 = () => {
                   </Link>
 
                   <Link
-                    href="https://www.instagram.com/futurexcon/"
+                    href="https://chat.whatsapp.com/HRwARw34qnoJp9mYCJoa4K?mode=ac_t"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <svg
-                      xmlns="https://chat.whatsapp.com/HRwARw34qnoJp9mYCJoa4K"
+                      xmlns="http://www.w3.org/2000/svg"
                       width={20}
                       height={20}
                       viewBox="0 0 24 24"
