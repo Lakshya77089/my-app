@@ -6,8 +6,8 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <section className="relative bg-black text-white w-full mt-30 md:mt-0">
-      <div className="max-w-7xl mx-auto px-6 lg:px-20 z-9">
+    <section className="relative bg-black text-white w-full mt-10 md:mt-0">
+      <div className="max-w-7xl mx-auto px-6 lg:px-20 z-10 relative">
         <p
           style={{
             fontFamily: "LufgaRegular",
@@ -38,21 +38,21 @@ const Section2 = () => {
 
           {/* transparent fill + white stroke in the middle */}
           <span
-          className="hidden md:inline"
+            className="hidden md:inline"
             style={{
               color: "rgba(200,200,200,0.3)",
               WebkitTextStrokeWidth: "1px",
-              WebkitTextStrokeColor: "#ffffff", 
+              WebkitTextStrokeColor: "#ffffff",
             }}
           >
             ng Real Impact for Real Inno
           </span>
           <span
-          className="inline md:hidden"
+            className="inline md:hidden"
             style={{
               color: "rgba(200,200,200,0.3)",
               WebkitTextStrokeWidth: "1px",
-              WebkitTextStrokeColor: "#ffffff", 
+              WebkitTextStrokeColor: "#ffffff",
             }}
           >
             Creating Real Impact for Real Innovators
@@ -61,7 +61,7 @@ const Section2 = () => {
           {/* solid white at end */}
           <span className="hidden md:inline text-white">vators</span>
         </h2>
-         <div className="absolute z-0 inset-0 pointer-events-none">
+        <div className="absolute z-0 inset-0 pointer-events-none">
           <div className="relative -left-3/8 top-0 w-[200%] h-full rotate-[-45deg] flex flex-col gap-9">
             <div
               style={{ backgroundColor: "#1E00FF" }}
@@ -83,8 +83,6 @@ const Section2 = () => {
             className="w-full h-auto  block rounded-full"
           />
         </div>
-           
-                
       </div>
     </section>
   );
