@@ -402,7 +402,7 @@ const Section7: React.FC = () => {
   const containerRef1 = useRef<HTMLDivElement>(null);
   const containerRef2 = useRef<HTMLDivElement>(null);
   const containerRef3 = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
 
   // Add this useEffect to your component
   useEffect(() => {
@@ -444,15 +444,15 @@ const Section7: React.FC = () => {
     return () => window.removeEventListener("resize", setAnimationProperties);
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth < 768);
+  //   };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  //   handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   const renderProjectImages = (images: ProjectImage[]) => {
     return images.map((image, index) => (
