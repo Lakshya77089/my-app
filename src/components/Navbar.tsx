@@ -152,7 +152,7 @@ export default function Navbar() {
                 href="https://www.bfmacademy.in/networking"
                 className="block rounded px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
               >
-                Networking
+                Future Xcon
               </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -234,7 +234,7 @@ export default function Navbar() {
                       }}
                     >
                       <Button className="w-full bg-brandblue/90 text-white hover:bg-brandblue/80">
-                        Networking
+                        Future Xcon
                       </Button>
                     </Link>
                   </div>

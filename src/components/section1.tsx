@@ -60,16 +60,22 @@ const Section1 = () => {
                 </p>
               </div>
 
-              <button className="md:mt-4 flex mx-auto md:mx-0 items-center  gap-3 rounded-full px-6 py-3 transition text-sm font-medium">
-                <img
-                  src="/section2/register.png"
-                  alt="Register Icon"
-                  width={18}
-                  height={18}
-                  className="w-18 h-18"
-                />
-                ATTEND OUR NEXT EVENT
-              </button>
+              <a
+                href="https://lu.ma/fzop3h1k"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="md:mt-4 flex mx-auto md:mx-0 items-center gap-3 rounded-full px-6 py-3 transition text-sm font-medium">
+                  <img
+                    src="/section2/register.png"
+                    alt="Register Icon"
+                    width={18}
+                    height={18}
+                    className="w-18 h-18"
+                  />
+                  ATTEND OUR NEXT EVENT
+                </button>
+              </a>
             </div>
 
             {/* <div className="md:w-1/2 relative flex flex-col mt-15 items-center md:items-end">
@@ -227,7 +233,12 @@ const Section1 = () => {
                 <p className="text-[8px] sm:text-[12px] font-bold text-white/90 mt-2">
                   19th July 2025
                 </p>
-                <button className="mt-3 flex items-center text-[10px] sm:text-sm">
+                <a
+                  href="https://lu.ma/fzop3h1k"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 flex items-center text-[10px] sm:text-sm cursor-pointer"
+                >
                   <img
                     src="/section2/register.png"
                     alt="Register Icon"
@@ -236,7 +247,7 @@ const Section1 = () => {
                     className="w-6 h-6 sm:w-10 sm:h-10"
                   />
                   Join Now
-                </button>
+                </a>
 
                 <div className="flex items-center gap-2 mt-3">
                   <Link
