@@ -11,10 +11,12 @@ export default function Home() {
   return (
     <main>
       <Navbar />
+      <div className="overflow-hidden">
       <Section1 />
       {/* <Section6 /> */}
       <Section2 />
       <Section3 />
+      </div>
       <Section4 />
       <div className="relative">
         <Section5 />

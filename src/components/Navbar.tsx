@@ -1,36 +1,39 @@
-'use client'
-import Image from 'next/image'
-import { ModeToggle } from '@/components/ui/mode-toggle'
-import { ConnectButton } from 'thirdweb/react'
-import { client } from '../../actions/wallet'
-import { useTheme } from 'next-themes'
-import { Suspense,useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Menu } from 'lucide-react'
-import Link from 'next/link'
+"use client";
+import Image from "next/image";
+// import { ModeToggle } from "@/components/ui/mode-toggle";
+import { ConnectButton } from "thirdweb/react";
+import { client } from "../../actions/wallet";
+import { useTheme } from "next-themes";
+import { Suspense, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight,Menu } from "lucide-react";
+import Link from "next/link";
+import { useQueryClient } from '@tanstack/react-query';
 import {
-	Sheet,
-	SheetContent,
-	SheetHeader,
-	SheetTitle,
-	SheetTrigger,
-} from '@/components/ui/sheet'
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
-	IconBrandInstagram,
-	IconBrandLinkedin,
-	IconBrandReddit,
-	IconBrandTelegram,
-	IconBrandTwitter,
-} from '@tabler/icons-react'
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandReddit,
+  IconBrandTelegram,
+  IconBrandTwitter,
+} from "@tabler/icons-react";
 import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Navbar() {
   const theme = useTheme().theme;
+  const qc = useQueryClient();
+  // console.log('QueryClient in Navbar:', qc);
 
   const welcomeScreen = {
     title: "BFM Academy",
@@ -41,7 +44,9 @@ export default function Navbar() {
       height: 200,
     },
   };
-  const [showEventLinks, setShowEventLinks] = useState(false)
+  const [showEventLinks, setShowEventLinks] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
   return (
     <nav className="fixed  top-0 left-0 z-[150] w-full bg-transparent backdrop-blur-[10px] flex flex-row items-center justify-between px-14 pb-4 pt-7">
       <Link href="/" className="flex flex-row items-center gap-2 md:gap-4">
@@ -66,42 +71,46 @@ export default function Navbar() {
 
       {/* Desktop Navigation */}
       <div className="hidden flex-row items-center justify-between space-x-2 md:flex">
-        <ModeToggle />
-        <Link href="/early-access">
+        {/* <ModeToggle /> */}
+        <Link href="https://www.bfmacademy.in/early-access">
           <Button className="bg-brandblue p-5 text-white hover:bg-brandblue/90">
             Get Early Access
           </Button>
         </Link>
-        {/* <Suspense
-            fallback={
-              <Button className="group rounded-full bg-brandblue text-white transition-all hover:bg-brandblue/90">
-                <span className="translate-x-[12px] transition-all group-hover:translate-x-0">
-                  Enroll Now
-                </span>
-                <ArrowRight
-                  className="relative right-12 opacity-0 transition-all group-hover:right-0 group-hover:opacity-100"
-                  size={24}
-                />
-              </Button>
-            }
-          >
-            <ConnectButton
-              client={client}
-              connectButton={{
-                label: 'Connect Wallet',
-                className: 'connect-wallet',
-              }}
-              connectModal={{
-                welcomeScreen: welcomeScreen,
-                title: 'Get started with BFMAcademy',
-                titleIcon: '/page/logo-blue.png',
-                privacyPolicyUrl: 'https://www.bfmacademy.in/privacy-policy',
-                size: 'wide',
-              }}
-              theme={theme == 'dark' ? 'dark' : 'light'}
-            />
-          </Suspense> */}
-        <Link href="/business">
+        <Suspense
+  fallback={
+    <Button className="group rounded-full bg-brandblue text-white transition-all hover:bg-brandblue/90">
+      <span className="translate-x-[12px] transition-all group-hover:translate-x-0">
+        Enroll Now
+      </span>
+      <ArrowRight
+        className="relative right-12 opacity-0 transition-all group-hover:right-0 group-hover:opacity-100"
+        size={24}
+      />
+    </Button>
+  }
+>
+  
+  <div className="mr-2">
+    <ConnectButton
+      client={client}
+      connectButton={{
+        label: 'Connect Wallet',
+        className: 'connect-wallet',
+      }}
+      connectModal={{
+        welcomeScreen: welcomeScreen,
+        title: 'Get started with BFMAcademy',
+        titleIcon: '/page/logo-blue.png',
+        privacyPolicyUrl: 'https://www.bfmacademy.in/privacy-policy',
+        size: 'wide',
+      }}
+      theme={theme === 'dark' ? 'dark' : 'light'}
+    />
+  </div>
+</Suspense>
+
+        <Link href="https://www.bfmacademy.in/business">
           <Button
             className="group rounded-lg bg-zinc-700 p-5 text-white transition-all hover:bg-zinc-700/90 dark:bg-secondary dark:hover:bg-secondary/90"
             variant="secondary"
@@ -109,7 +118,7 @@ export default function Navbar() {
             Business
           </Button>
         </Link>
-        <Link href="/roadmap">
+        <Link href="https://www.bfmacademy.in/roadmap">
           <Button
             className="group rounded-lg bg-zinc-700 p-5 text-white transition-all hover:bg-zinc-700/90 dark:bg-secondary dark:hover:bg-secondary/90"
             variant="secondary"
@@ -118,53 +127,53 @@ export default function Navbar() {
           </Button>
         </Link>
         <DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button
-							className="group rounded-lg bg-zinc-700 p-5 text-white transition-all hover:bg-zinc-700/90 dark:bg-secondary dark:hover:bg-secondary/90"
-							variant="secondary"
-						>
-							Events
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent
-						className="mt-2 w-48 rounded-md border border-zinc-200 bg-white shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
-						align="end"
-					>
-						<DropdownMenuItem asChild>
-							<Link
-								href="/event-archive"
-								className="block rounded px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
-							>
-								Event Archive
-							</Link>
-						</DropdownMenuItem>
-						<DropdownMenuItem asChild>
-							<Link
-								href="/networking"
-								className="block rounded px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
-							>
-								Networking
-							</Link>
-						</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              className="group rounded-lg bg-zinc-700 p-5 text-white transition-all hover:bg-zinc-700/90 dark:bg-secondary dark:hover:bg-secondary/90"
+              variant="secondary"
+            >
+              Events
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            className="mt-9 w-48 rounded-md border border-zinc-200 bg-white shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
+            align="end"
+          >
+            <DropdownMenuItem asChild>
+              <Link
+                href="https://www.bfmacademy.in/event-archive"
+                className="block rounded px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
+              >
+                Event Archive
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link
+                href="https://www.bfmacademy.in/networking"
+                className="block rounded px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
+              >
+                Networking
+              </Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {/* Mobile Navigation */}
       <div className="md:hidden">
-        <Sheet>
+        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <div className="flex flex-row items-center gap-2">
-            <ModeToggle />
-            <SheetTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="bg-brandblue text-white hover:bg-brandblue/90 hover:text-white"
-              >
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
+            {/* <ModeToggle /> */}
+            <Button
+              variant="outline"
+              size="icon"
+              className="bg-brandblue text-white hover:bg-brandblue/90 hover:text-white"
+              onClick={() => setIsSheetOpen((prev) => !prev)} // toggle manually
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
           </div>
+
           <SheetContent
             side="bottom"
             className="h-dvh w-screen bg-brandblue text-white"
@@ -184,69 +193,76 @@ export default function Navbar() {
             </SheetHeader>
 
             <div className="mt-8 flex flex-col space-y-4">
-              <SheetTrigger asChild>
-                <Link href="/early-access" className="w-full">
-                  <Button className="group w-full rounded-lg bg-brandblue py-6 text-base text-white shadow-none transition-all hover:bg-brandblue/90">
-                    Early Access
-                  </Button>
-                </Link>
-              </SheetTrigger>
-              <div className="w-full">
-								<button
-									onClick={() => setShowEventLinks((prev) => !prev)}
-									className="w-full rounded-lg bg-brandblue py-6 text-base text-white transition-all hover:bg-brandblue/90"
-								>
-									Events
-								</button>
-								{showEventLinks && (
-									<div className="mt-2 space-y-2 px-2">
-										<SheetTrigger asChild>
-											<Link href="/event-archive" className="block w-full">
-												<Button className="w-full bg-brandblue/90 text-white hover:bg-brandblue/80">
-													Event Archive
-												</Button>
-											</Link>
-										</SheetTrigger>
-										<SheetTrigger asChild>
-											<Link href="/networking" className="block w-full">
-												<Button className="w-full bg-brandblue/90 text-white hover:bg-brandblue/80">
-													Networking
-												</Button>
-											</Link>
-										</SheetTrigger>
-									</div>
-								)}
-							</div>
-              <SheetTrigger asChild>
-                <Link href="/business" className="w-full">
-                  <Button className="group w-full rounded-lg bg-brandblue py-6 text-base text-white shadow-none transition-all hover:bg-brandblue/90">
-                    Business
-                  </Button>
-                </Link>
-              </SheetTrigger>
-              <SheetTrigger asChild>
-                <Link href="/roadmap" className="w-full">
-                  <Button className="group w-full rounded-lg bg-brandblue py-6 text-base text-white shadow-none transition-all hover:bg-brandblue/90">
-                    Roadmap
-                  </Button>
-                </Link>
-              </SheetTrigger>
-              <SheetTrigger asChild>
-                <Link href="/privacy-policy" className="w-full">
-                  <Button className="group w-full rounded-lg bg-brandblue py-6 text-base text-white shadow-none transition-all hover:bg-brandblue/90">
-                    Privacy Policy
-                  </Button>
-                </Link>
-              </SheetTrigger>
-              <SheetTrigger asChild>
-                <Link href="/terms-and-conditions" className="w-full">
-                  <Button className="group w-full rounded-lg bg-brandblue py-6 text-base text-white shadow-none transition-all hover:bg-brandblue/90">
-                    Terms and Conditions
-                  </Button>
-                </Link>
-              </SheetTrigger>
+              <Link
+                href="https://www.bfmacademy.in/early-access"
+                className="w-full"
+                onClick={() => setIsSheetOpen(false)}
+              >
+                <Button className="w-full bg-brandblue py-6 text-base text-white hover:bg-brandblue/90">
+                  Early Access
+                </Button>
+              </Link>
 
-              <Suspense
+              {/* Events Dropdown */}
+              <div className="w-full">
+                <button
+                  onClick={() => setShowEventLinks((prev) => !prev)}
+                  className="w-full rounded-lg bg-brandblue py-6 text-base text-white transition-all hover:bg-brandblue/90"
+                >
+                  Events
+                </button>
+                {showEventLinks && (
+                  <div className="mt-2 space-y-2 px-2 animate-slide-down">
+                    <Link
+                      href="https://www.bfmacademy.in/event-archive"
+                      className="block w-full"
+                      onClick={() => {
+                        setShowEventLinks(false);
+                        setIsSheetOpen(false);
+                      }}
+                    >
+                      <Button className="w-full bg-brandblue/90 text-white hover:bg-brandblue/80">
+                        Event Archive
+                      </Button>
+                    </Link>
+                    <Link
+                      href="https://www.bfmacademy.in/networking"
+                      className="block w-full"
+                      onClick={() => {
+                        setShowEventLinks(false);
+                        setIsSheetOpen(false);
+                      }}
+                    >
+                      <Button className="w-full bg-brandblue/90 text-white hover:bg-brandblue/80">
+                        Networking
+                      </Button>
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Other Links */}
+              {[
+                { href: "https://www.bfmacademy.in/business", label: "Business" },
+                { href: "https://www.bfmacademy.in/roadmap", label: "Roadmap" },
+                { href: "https://www.bfmacademy.in/privacy-policy", label: "Privacy Policy" },
+                {
+                  href: "https://www.bfmacademy.in/terms-and-conditions",
+                  label: "Terms and Conditions",
+                },
+              ].map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="w-full"
+                  onClick={() => setIsSheetOpen(false)}
+                >
+                  <Button className="w-full bg-brandblue py-6 text-base text-white hover:bg-brandblue/90">
+                    {label}
+                  </Button>
+                </Link>
+              ))}
+                            <Suspense
                 fallback={
                   <Button className="w-full bg-foreground text-background">
                     Enroll Now
@@ -272,8 +288,7 @@ export default function Navbar() {
                   />
                 </SheetTrigger>
               </Suspense>
-
-              {/* Social Icons - Vertical Stack */}
+              {/* Social Icons */}
               <div className="flex flex-row items-center gap-0 max-md:justify-center md:flex-col md:space-y-1">
                 <Link href="https://t.me/bfmacademyy" target="_blank">
                   <Button

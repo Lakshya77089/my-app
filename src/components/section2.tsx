@@ -6,7 +6,7 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <section className="relative bg-black text-white w-full mt-10 md:mt-0">
+    <section className="relative bg-black text-white w-full mt-20 md:mt-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-20 z-10 relative">
         <p
           style={{
