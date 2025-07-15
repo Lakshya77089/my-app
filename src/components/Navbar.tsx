@@ -8,7 +8,7 @@ import { Suspense, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight,Menu } from "lucide-react";
 import Link from "next/link";
-import { useQueryClient } from '@tanstack/react-query';
+// import { useQueryClient } from '@tanstack/react-query';
 import {
   Sheet,
   SheetContent,
@@ -32,7 +32,7 @@ import {
 
 export default function Navbar() {
   const theme = useTheme().theme;
-  const qc = useQueryClient();
+  // const qc = useQueryClient();
   // console.log('QueryClient in Navbar:', qc);
 
   const welcomeScreen = {
